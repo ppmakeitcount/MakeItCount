@@ -27,7 +27,7 @@ export default class MakeItCount extends Component {
 
         <View style={styles.count}>
           <TouchableOpacity onPress={()=>this.setState({ count: this.state.count+1 })}>
-            <Text style={{fontSize:140, color:'#FF4081'}}>{tCount}</Text>
+            <Text style={{fontSize:200, color:'#FF4081'}}>{tCount}</Text>
           </TouchableOpacity>
         </View>
 
@@ -58,9 +58,10 @@ const styles = StyleSheet.create({
     //margin: 10,
   },
   count: {
-    flex:8,
+    flex:5,
+    flexDirection:'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     backgroundColor: '#e8eaf6'
   },
   buttons: {
