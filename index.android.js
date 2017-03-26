@@ -9,24 +9,37 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
-
+//onPressLearnMore();
 export default class MakeItCount extends Component {
+  state = {count: 0}
   render() {
+    let tCount = this.state.count;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+
+        <View style={styles.header}>
+          <Text style={{fontSize:20, color:'#fff'}}>Make It Count</Text>
+
+        </View>
+
+        <View style={styles.count}>
+          <TouchableOpacity onPress={()=>this.setState({ count: this.state.count+1 })}>
+            <Text style={{fontSize:180, color:'#FF4081'}}>{tCount}</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttons}>
+          <TouchableOpacity onPress={()=>this.setState({ count: 0 })}>
+            <Text style={{fontSize:30, color:'#1A237E'}}>Clear</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.setState({ count: this.state.count-1 })}>
+            <Text style={{fontSize:30, color:'#1A237E'}}>Minus</Text>
+          </TouchableOpacity>
+        </View>
+    </View>
     );
   }
 }
@@ -34,19 +47,29 @@ export default class MakeItCount extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  header: {
+    flex: 1,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#3f51b5'
+    //margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  count: {
+    flex:5,
+    flexDirection:'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    backgroundColor: '#e8eaf6'
+  },
+  buttons: {
+    flex:3,
+    flexDirection:'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#e8eaf6'
   },
 });
 
